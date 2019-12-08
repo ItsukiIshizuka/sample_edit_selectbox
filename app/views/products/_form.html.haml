@@ -1,0 +1,18 @@
+%label
+  商品名
+  = f.text_field :name
+.sell-form-box
+  .form-group.sell
+    %label
+      カテゴリー
+      %span.form-require 必須
+    %div.select
+      .select-wrap
+        %i.icon-arrow-bottom
+        = f.collection_select :category_id, @category, :id, :name, { prompt: "---" }, { class: "select-default", id: "category_select" }
+    %div.select-children
+
+  %label
+    送信
+    =f.submit
+      

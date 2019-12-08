@@ -1,5 +1,8 @@
 %h1 New Category
-= form_for @product, url: categories_path, method: :post, html: { class: "sell-form"} do |f| 
+= form_for @product, url: products_path, method: :post, html: { class: "sell-form"} do |f|
+  %label
+  商品名
+  = f.text_field :name
   .sell-form-box
     .form-group.sell
       %label
@@ -10,4 +13,8 @@
           %i.icon-arrow-bottom
           = f.collection_select :category_id, @category, :id, :name, { prompt: "---" }, { class: "select-default", id: "category_select" }
       %div.select-children
-        =f.text_field :brand_id, autocomplete: "brand", type: "hidden", value: "1"
+
+    %label
+      送信
+      =f.submit
+  = render 'show', show: @show

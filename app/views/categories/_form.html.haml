@@ -1,14 +1,12 @@
-= form_with(model: category, local: true) do |form|
-  - if category.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(category.errors.count, "error")
-        prohibited this category from being saved:
-      %ul
-        - category.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :name
-    = form.text_field :name
-  .actions
-    = form.submit
+= form_for category, url: categories_path, method: :post, html: { class: "sell-form"} do |f| 
+  .sell-form-box
+    .form-group.sell
+      %label
+        カテゴリー
+        %span.form-require 必須
+      %div.select
+        .select-wrap
+          %i.icon-arrow-bottom
+          = f.collection_select :category_id, category, :id, :name, { prompt: "---" }, { class: "select-default", id: "category_select" }
+      %div.select-children
+        =f.text_field :brand_id, autocomplete: "brand", type: "hidden", value: "1"

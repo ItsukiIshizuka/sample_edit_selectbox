@@ -1,0 +1,9 @@
+- show.each do |s|
+  %h4
+    = s.name
+    = s.category_id
+    - if s.category.name == "test_grand_children"
+      1バン
+    - else
+      2ばん
+    =link_to "go", edit_product_path(s.id)
