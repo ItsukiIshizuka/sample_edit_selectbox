@@ -35,6 +35,8 @@ $(function(){
   }
 
   $(document).on('change', '#category_select', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
+    $('#children_wrapper2').remove(); 
+    $('#grandchildren_wrapper2').remove();
     var productcategory = document.getElementById('category_select').value; //
   // ↑ productcategoryに選択した親のvalueを代入
     if (productcategory != ''){
@@ -67,6 +69,7 @@ $(function(){
 
   // document､もしくは親を指定しないと発火しない
   $(document).on('change', '#child_category', function(){
+    $('#grandchildren_wrapper2').remove();
     var productcategory = document.getElementById('child_category').value;
     if (productcategory != ''){
     $.ajax ({

@@ -29,7 +29,12 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    grand_num = @product.category_id
+    parent_num = Category.find(grand_num).parent.parent.id
+    children_num = Category.find(grand_num).parent.id
     @category = Category.order('id ASC').limit(2)
+    @category_children = Category.where(ancestry: parent_num)
+    @categroy_grand = Category.where(ancestry: "#{parent_num}/#{children_num}")
   end
 
   def update
