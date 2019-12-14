@@ -2,9 +2,9 @@
 
 ### gem list
 *  pry-rails
-*  jquery-rail https://github.com/rails/jquery-rails
-*  haml-rails https://github.com/haml/haml-rails
-*  ancestry https://github.com/stefankroes/ancestry
+*  [jquery-rail](https://github.com/rails/jquery-rails)
+*  [haml-rails](https://github.com/haml/haml-rails)
+*  [ancestry](https://github.com/stefankroes/ancestry)
 
 ## 導入手順
 ### ancestry
